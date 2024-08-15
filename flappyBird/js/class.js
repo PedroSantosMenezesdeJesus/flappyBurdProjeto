@@ -1,4 +1,7 @@
 class obj {
+    frame = 0
+    timer = 0
+
     constructor(px,py,lar,alt,imagem){
         this.px = px
         this.py = py
@@ -12,6 +15,17 @@ class obj {
         canvas.drawImage(img,this.px,this.py,this.lar,this.alt)
         
     }
+    animation(speed,limit,nameImage){
+        this.timer += 1
+        if (this.timer >= speed) {
+            this.timer = 0
+            this.frame += 1
+        }
+        if (this.frame > limit) {
+            this.frame = 0
+        }
+        this.imagem = 'img/' + nameImage + this.frame + '.png'
+    }
 }
 
 class BG extends obj{
@@ -21,4 +35,12 @@ class BG extends obj{
             this.px = pos 
         }
     }
+}
+
+class GROUND extends BG{
+
+}
+
+class BIRD extends obj{
+
 }
