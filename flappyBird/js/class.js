@@ -42,5 +42,21 @@ class GROUND extends BG{
 }
 
 class BIRD extends obj{
+    speed = 2
+    gravity = 1
+    move() {
+        if (this.speed < 10) {
+            this.speed += this.gravity
+        }
+        this.py += this.speed
+    }
 
+    limite() {
+        if (this.py >= 660) {
+            this.py = 660
+        }
+        else if (this.py <= 0) {
+            this.py = 0
+        }
+    }
 }
